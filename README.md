@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/codecov/dart.svg?branch=master)](https://travis-ci.org/codecov/dart) [![codecov.io]
+
 # chat_websocket
 
 A new Flutter project.
