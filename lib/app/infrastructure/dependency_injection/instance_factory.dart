@@ -4,7 +4,6 @@ typedef RegisterLazy<T> = T Function();
 
 class InstanceFactory {
 
-  InstanceFactory._();
   static GetIt _getIt = GetIt.instance;
 
   static T get<T>(){
