@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:chat_websocket/app/modules/auth/login/presentation/usecases/i_login_user.dart';
 import 'package:chat_websocket/app/modules/auth/login/domain/usecases/login_user/login_param_in.dart';
-import 'package:chat_websocket/app/modules/auth/login/domain/usecases/login_user/login_user.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
