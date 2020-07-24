@@ -22,7 +22,7 @@ void main() {
 
     final result = await loginUser.execute(LoginParamIn('', ''));
     result.fold(
-      (l) => fail,
+      (l) => fail('não deveria cair no sucesso'),
       (r) => expect(r, isA<User>()),
     );
   });
