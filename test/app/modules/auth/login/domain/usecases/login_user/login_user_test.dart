@@ -3,7 +3,6 @@ import 'package:chat_websocket/app/modules/auth/login/domain/failures/login_fail
 import 'package:chat_websocket/app/modules/auth/login/domain/repositories/i_login_repository.dart';
 import 'package:chat_websocket/app/modules/auth/login/domain/usecases/login_user/login_param_in.dart';
 import 'package:chat_websocket/app/modules/auth/login/domain/usecases/login_user/login_user.dart';
-import 'package:chat_websocket/app/modules/auth/login/presentation/usecases/i_login_user.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
