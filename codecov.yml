@@ -1,0 +1,4 @@
+ignore:
+  - "**/*.g.dart"
+  - "**/*.freezed.dart"
+  - "**/*.iconfig.dart"
