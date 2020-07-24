@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/codecov/dart.svg?branch=master)](https://travis-ci.org/codecov/dart) [![codecov.io]
+[![codecov](https://codecov.io/gh/rodrigorahman/flutter_curso_chat_websocket/branch/master/graph/badge.svg?token=Z94D0XPPGQ)](https://codecov.io/gh/rodrigorahman/flutter_curso_chat_websocket)
 
 
 # Covarage run
