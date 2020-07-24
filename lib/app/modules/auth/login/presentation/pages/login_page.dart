@@ -1,6 +1,6 @@
 import 'package:chat_websocket/app/infrastructure/dependency_injection/instance_factory.dart';
 import 'package:chat_websocket/app/infrastructure/routers/routers.gr.dart';
-import 'package:chat_websocket/app/modules/auth/login/presentation/bloc/login_bloc.dart';
+import 'package:chat_websocket/app/modules/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:chat_websocket/app/shared/flutter_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +9,7 @@ import 'package:chat_websocket/app/shared/loader.dart';
 class LoginPage extends StatelessWidget {
   final TextEditingController _loginController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final LoginBloc _bloc = InstanceFactory.get<LoginBloc>();
+  final LoginCubit _cubit = InstanceFactory.get<LoginCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,10 @@ class LoginPage extends StatelessWidget {
   }
 
   Widget _buildPage(BuildContext context) {
-    return BlocListener<LoginBloc, LoginState>(
-        bloc: _bloc,
+    return BlocListener<LoginCubit, LoginState>(
+        cubit: _cubit,
         listener: (context, state) {
-          
           context.showHideLoader(state.loading);
-
           state.authFailureOrSuccessOption.fold(
             // Quando for none
             () => null,
@@ -101,7 +99,7 @@ class LoginPage extends StatelessWidget {
                       width: MediaQuery.of(context).size.width,
                       height: 50,
                       child: RaisedButton(
-                        onPressed: () => _bloc.add(LoginEvent.login(_loginController.text, _passwordController.text)),
+                        onPressed: () => _cubit.login(_loginController.text, _passwordController.text),
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -115,9 +113,12 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Text(
-                'Cadastre-se',
-                style: TextStyle(color: Colors.black, fontSize: 20),
+              InkWell(
+                onTap: () => Navigator.of(context).pushNamed(Routes.registerPage),
+                              child: Text(
+                  'Cadastre-se',
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                ),
               )
             ],
           ),

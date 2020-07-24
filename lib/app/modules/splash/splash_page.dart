@@ -1,20 +1,19 @@
 import 'package:chat_websocket/app/infrastructure/dependency_injection/instance_factory.dart';
 import 'package:chat_websocket/app/infrastructure/routers/routers.gr.dart';
-import 'package:chat_websocket/app/modules/auth/bloc/auth_bloc.dart';
-import 'package:chat_websocket/app/shared/flutter_utils.dart';
+import 'package:chat_websocket/app/modules/auth/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_websocket/app/shared/loader.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashPage extends StatelessWidget {
-  final _authBloc;
+  final _authCubit;
 
-  SplashPage() : _authBloc = InstanceFactory.get<AuthBloc>()..add(AuthEvent.checkIsLogged());
+  SplashPage() : _authCubit = InstanceFactory.get<AuthCubit>()..checkIsLogged();
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthBloc, AuthState>(
-      bloc: _authBloc,
+    return BlocListener<AuthCubit, AuthState>(
+      cubit: _authCubit,
       listener: (context, state) {
         context.showHideLoader(true);
         state.map(

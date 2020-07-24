@@ -4,27 +4,46 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:chat_websocket/app/modules/auth/bloc/auth_bloc.dart';
+import 'package:chat_websocket/app/modules/auth/cubit/auth_cubit.dart';
 import 'package:chat_websocket/app/infrastructure/rest_client/custom_dio.dart';
 import 'package:chat_websocket/app/infrastructure/rest_client/i_rest_client.dart';
+import 'package:chat_websocket/app/modules/auth/register/data/datasource/user_register_datasource.dart';
+import 'package:chat_websocket/app/modules/auth/register/data/datasource/i_user_register_datasource.dart';
+import 'package:chat_websocket/app/modules/auth/register/data/repository/user_register_repository.dart';
+import 'package:chat_websocket/app/modules/auth/register/domain/ports/i_user_register_repository.dart';
 import 'package:chat_websocket/app/modules/groups/data/datasource/group_datasource.dart';
 import 'package:chat_websocket/app/modules/groups/data/datasource/i_group_datasource.dart';
 import 'package:chat_websocket/app/modules/groups/data/repository/group_repository.dart';
 import 'package:chat_websocket/app/modules/groups/domain/ports/i_group_repository.dart';
 import 'package:chat_websocket/app/modules/auth/login/data/datasource/login_datasource.dart';
-import 'package:chat_websocket/app/modules/auth/login/data/datasource/i_login_datasource.dart';
-import 'package:chat_websocket/app/modules/auth/login/data/repository/login_repository.dart';
-import 'package:chat_websocket/app/modules/auth/login/domain/ports/i_login_repository.dart';
-import 'package:chat_websocket/app/modules/auth/login/domain/usecases/login_user.dart';
+import 'package:chat_websocket/app/modules/auth/login/infra/datasource/i_login_datasource.dart';
+import 'package:chat_websocket/app/modules/auth/login/infra/repositories/login_repository.dart';
+import 'package:chat_websocket/app/modules/auth/login/domain/repositories/i_login_repository.dart';
+import 'package:chat_websocket/app/modules/auth/login/domain/usecases/login_user/login_user.dart';
+import 'package:chat_websocket/app/modules/auth/login/presentation/usecases/i_login_user.dart';
+import 'package:chat_websocket/app/modules/auth/register/domain/usecases/register/register.dart';
+import 'package:chat_websocket/app/modules/auth/register/presentation/ports/i_register.dart';
+import 'package:chat_websocket/app/modules/auth/login/presentation/cubit/login_cubit.dart';
+import 'package:chat_websocket/app/modules/auth/register/presentation/cubit/register_cubit.dart';
+import 'package:chat_websocket/app/modules/groups/domain/usecases/chat_websocket_connect.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/ports/i_chat_websocket_connect.dart';
 import 'package:chat_websocket/app/modules/groups/domain/usecases/create_group.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/ports/i_create_group.dart';
 import 'package:chat_websocket/app/modules/groups/domain/usecases/find_all_groups.dart';
-import 'package:chat_websocket/app/modules/groups/presentation/pages/groups_list/bloc/group_list_bloc.dart';
-import 'package:chat_websocket/app/modules/auth/login/presentation/bloc/login_bloc.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/ports/i_find_all_groups.dart';
+import 'package:chat_websocket/app/modules/groups/domain/usecases/find_group_by_id.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/ports/i_find_group_by_id.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/pages/chat/cubit/chat_group_cubit.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/pages/groups_list/cubit/group_list_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
-  g.registerFactory<AuthBloc>(() => AuthBloc());
+  g.registerFactory<AuthCubit>(() => AuthCubit());
   g.registerFactory<IRestClient>(() => CustomDio());
+  g.registerFactory<IUserRegisterDatasource>(
+      () => UserRegisterDatasource(g<IRestClient>()));
+  g.registerFactory<IUserRegisterRepository>(
+      () => UserRegisterRepository(g<IUserRegisterDatasource>()));
   g.registerLazySingleton<IGroupDataSource>(
       () => GroupDatasource(g<IRestClient>()));
   g.registerLazySingleton<IGroupRepository>(
@@ -33,12 +52,17 @@ void $initGetIt(GetIt g, {String environment}) {
       () => LoginDatasource(g<IRestClient>()));
   g.registerLazySingleton<ILoginRepository>(
       () => LoginRepository(g<ILoginDatasource>()));
-  g.registerLazySingleton<LoginUser>(() => LoginUser(g<ILoginRepository>()));
-  g.registerLazySingleton<CreateGroup>(
-      () => CreateGroup(g<IGroupRepository>()));
-  g.registerLazySingleton<FindAllGroups>(
-      () => FindAllGroups(g<IGroupRepository>()));
-  g.registerFactory<GroupListBloc>(
-      () => GroupListBloc(g<FindAllGroups>(), g<CreateGroup>()));
-  g.registerFactory<LoginBloc>(() => LoginBloc(g<LoginUser>()));
+  g.registerFactory<ILoginUser>(() => LoginUser(g<ILoginRepository>()));
+  g.registerFactory<IRegister>(() => Register(g<IUserRegisterRepository>()));
+  g.registerFactory<LoginCubit>(() => LoginCubit(g<ILoginUser>()));
+  g.registerFactory<RegisterCubit>(() => RegisterCubit(g<IRegister>()));
+  g.registerFactory<IChatWebsocketConnect>(
+      () => ChatWebsocketConnect(g<IGroupRepository>()));
+  g.registerFactory<ICreateGroup>(() => CreateGroup(g<IGroupRepository>()));
+  g.registerFactory<IFindAllGroups>(() => FindAllGroups(g<IGroupRepository>()));
+  g.registerFactory<IFindGroupById>(() => FindGroupById(g<IGroupRepository>()));
+  g.registerFactory<ChatGroupCubit>(
+      () => ChatGroupCubit(g<IFindGroupById>(), g<IChatWebsocketConnect>()));
+  g.registerFactory<GroupListCubit>(
+      () => GroupListCubit(g<IFindAllGroups>(), g<ICreateGroup>()));
 }

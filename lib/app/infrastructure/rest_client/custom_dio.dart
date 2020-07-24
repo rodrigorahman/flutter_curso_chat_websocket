@@ -22,6 +22,9 @@ class CustomDio implements IRestClient {
     _dio = Dio(options);
     _dio.interceptors.add(ErrorInterceptor());
   }
+
+  
+
 }
 
 

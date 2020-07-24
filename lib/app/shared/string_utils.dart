@@ -1,5 +1,10 @@
 class StringUtils {
   static String getInitialsName(String name) {
+    
+    assert(name != null);
+
+    if(name == null) return '';
+
     final names = name.split(' ');
 
     if (names.length > 1) {

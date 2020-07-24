@@ -29,7 +29,6 @@ class GroupMessageModel extends GroupMessage {
 
   static GroupMessageModel fromMap(Map<String, dynamic> map) {
     if (map == null) return null;
-    // DateFormat dateFormat = DateFormat.();
 
     return GroupMessageModel(
       id: map['id'] ?? '',

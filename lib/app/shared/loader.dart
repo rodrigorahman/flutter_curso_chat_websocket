@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 
-extension Loader on BuildContext {
-  Future<void> showHideLoader(bool showHide) async{
-    if(showHide) {
-      return showDialog(
-        context: this,
-        barrierDismissible: false,
-        child: Center(
-          child: CircularProgressIndicator(),
-        ));
-    }else {
-      Navigator.of(this).pop();  
-    }
-    
-  }
+bool loaderOpen = false;
 
+extension Loader on BuildContext {
+  Future<void> showHideLoader(bool showHide) async {
+    if (showHide) {
+      if (!loaderOpen) {
+        loaderOpen = true;
+        return showDialog(
+          context: this,
+          barrierDismissible: false,
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      }
+    } else {
+      if (loaderOpen) {
+        loaderOpen = false;
+        Navigator.of(this).pop();
+      }
+    }
+  }
 }

@@ -17,6 +17,12 @@ class _$GroupFailuresTearOff {
       message: message,
     );
   }
+
+  GroupFailuresValidate validationError({String message}) {
+    return GroupFailuresValidate(
+      message: message,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -28,19 +34,23 @@ mixin _$GroupFailures {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result serverError(String message),
+    @required Result validationError(String message),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result serverError(String message),
+    Result validationError(String message),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result serverError(_GroupFailures value),
+    @required Result validationError(GroupFailuresValidate value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result serverError(_GroupFailures value),
+    Result validationError(GroupFailuresValidate value),
     @required Result orElse(),
   });
 
@@ -132,8 +142,10 @@ class _$_GroupFailures implements _GroupFailures {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result serverError(String message),
+    @required Result validationError(String message),
   }) {
     assert(serverError != null);
+    assert(validationError != null);
     return serverError(message);
   }
 
@@ -141,6 +153,7 @@ class _$_GroupFailures implements _GroupFailures {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result serverError(String message),
+    Result validationError(String message),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -154,8 +167,10 @@ class _$_GroupFailures implements _GroupFailures {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result serverError(_GroupFailures value),
+    @required Result validationError(GroupFailuresValidate value),
   }) {
     assert(serverError != null);
+    assert(validationError != null);
     return serverError(this);
   }
 
@@ -163,6 +178,7 @@ class _$_GroupFailures implements _GroupFailures {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result serverError(_GroupFailures value),
+    Result validationError(GroupFailuresValidate value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -180,4 +196,121 @@ abstract class _GroupFailures implements GroupFailures {
   String get message;
   @override
   _$GroupFailuresCopyWith<_GroupFailures> get copyWith;
+}
+
+abstract class $GroupFailuresValidateCopyWith<$Res>
+    implements $GroupFailuresCopyWith<$Res> {
+  factory $GroupFailuresValidateCopyWith(GroupFailuresValidate value,
+          $Res Function(GroupFailuresValidate) then) =
+      _$GroupFailuresValidateCopyWithImpl<$Res>;
+  @override
+  $Res call({String message});
+}
+
+class _$GroupFailuresValidateCopyWithImpl<$Res>
+    extends _$GroupFailuresCopyWithImpl<$Res>
+    implements $GroupFailuresValidateCopyWith<$Res> {
+  _$GroupFailuresValidateCopyWithImpl(
+      GroupFailuresValidate _value, $Res Function(GroupFailuresValidate) _then)
+      : super(_value, (v) => _then(v as GroupFailuresValidate));
+
+  @override
+  GroupFailuresValidate get _value => super._value as GroupFailuresValidate;
+
+  @override
+  $Res call({
+    Object message = freezed,
+  }) {
+    return _then(GroupFailuresValidate(
+      message: message == freezed ? _value.message : message as String,
+    ));
+  }
+}
+
+class _$GroupFailuresValidate implements GroupFailuresValidate {
+  _$GroupFailuresValidate({this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'GroupFailures.validationError(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GroupFailuresValidate &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+
+  @override
+  $GroupFailuresValidateCopyWith<GroupFailuresValidate> get copyWith =>
+      _$GroupFailuresValidateCopyWithImpl<GroupFailuresValidate>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result serverError(String message),
+    @required Result validationError(String message),
+  }) {
+    assert(serverError != null);
+    assert(validationError != null);
+    return validationError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result serverError(String message),
+    Result validationError(String message),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (validationError != null) {
+      return validationError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result serverError(_GroupFailures value),
+    @required Result validationError(GroupFailuresValidate value),
+  }) {
+    assert(serverError != null);
+    assert(validationError != null);
+    return validationError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result serverError(_GroupFailures value),
+    Result validationError(GroupFailuresValidate value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (validationError != null) {
+      return validationError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GroupFailuresValidate implements GroupFailures {
+  factory GroupFailuresValidate({String message}) = _$GroupFailuresValidate;
+
+  @override
+  String get message;
+  @override
+  $GroupFailuresValidateCopyWith<GroupFailuresValidate> get copyWith;
 }

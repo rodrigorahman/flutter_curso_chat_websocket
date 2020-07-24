@@ -13,17 +13,20 @@ import 'package:chat_websocket/app/modules/groups/presentation/pages/chat/chat_g
 import 'package:chat_websocket/app/modules/groups/domain/entities/group.dart';
 import 'dart:ui';
 import 'package:chat_websocket/app/modules/auth/login/presentation/pages/login_page.dart';
+import 'package:chat_websocket/app/modules/auth/register/presentation/pages/register_page.dart';
 
 class Routes {
   static const String splashPage = '/';
   static const String groupsListPage = '/groups/list';
   static const String chatGroupPage = '/groups/chat';
   static const String loginPage = '/login';
+  static const String registerPage = '/register';
   static const all = <String>{
     splashPage,
     groupsListPage,
     chatGroupPage,
     loginPage,
+    registerPage,
   };
 }
 
@@ -35,6 +38,7 @@ class Routers extends RouterBase {
     RouteDef(Routes.groupsListPage, page: GroupsListPage),
     RouteDef(Routes.chatGroupPage, page: ChatGroupPage),
     RouteDef(Routes.loginPage, page: LoginPage),
+    RouteDef(Routes.registerPage, page: RegisterPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -66,6 +70,12 @@ class Routers extends RouterBase {
     LoginPage: (RouteData data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => LoginPage(),
+        settings: data,
+      );
+    },
+    RegisterPage: (RouteData data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => RegisterPage(),
         settings: data,
       );
     },

@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Chat WebSocket',
       theme: ThemeData(
         primaryColor: Color(0xFF6C44F2),
         visualDensity: VisualDensity.adaptivePlatformDensity,
