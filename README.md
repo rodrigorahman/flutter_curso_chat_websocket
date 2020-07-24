@@ -1,6 +1,10 @@
 
 [![Build Status](https://travis-ci.org/codecov/dart.svg?branch=master)](https://travis-ci.org/codecov/dart) [![codecov.io]
 
+
+# Covarage run
+bash <(curl -s https://codecov.io/bash) -t token
+
 # chat_websocket
 
 A new Flutter project.
