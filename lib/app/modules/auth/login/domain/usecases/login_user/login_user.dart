@@ -20,8 +20,8 @@ class LoginUser implements ILoginUser {
     return param.validate().fold(
       () async {
         final result = await _repository.login(param.login, param.password);
-        result.map((r) {
-          SharedPreferences.getInstance().then(
+        result.map((r) async {
+          await SharedPreferences.getInstance().then(
             (sp) => sp.setString('userLogged', jsonEncode({
               'id': r.id,
               'name': r.name,
