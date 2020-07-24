@@ -1,13 +1,18 @@
+import 'dart:convert';
 
-class User {
-  String id;
-  String name;
-  String login;
+import 'package:equatable/equatable.dart';
+
+class User extends Equatable {
+  final String id;
+  final String name;
+  final String login;
 
   User({
     this.id,
     this.name,
     this.login,
   });
-  
+
+  @override
+  List<Object> get props => [id, name, login];
 }
