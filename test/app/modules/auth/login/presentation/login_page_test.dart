@@ -10,15 +10,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../../../../helper/basic_app_test_start.dart';
+import '../../../../../mock/mock_navigator_observer.dart';
+
 class LoginUserMock extends Mock implements ILoginUser {}
 
-class MockNavigatorObserver extends Mock implements NavigatorObserver {}
-
 Future<void> main() async {
-  GetIt.I.allowReassignment = true;
-  TestWidgetsFlutterBinding.ensureInitialized();
-  await DotEnv().load('.env_dev');
-  configureDependencies();
+  startBasicAppTest();
   ILoginUser loginUser;
   NavigatorObserver mockNavigator;
 
@@ -74,7 +72,6 @@ Future<void> main() async {
     await tester.pumpWidget(MaterialApp(
       home: LoginPage(),
       navigatorObservers: [mockNavigator],
-
     ));
 
     var login = find.widgetWithText(TextFormField, 'Login');
@@ -87,7 +84,6 @@ Future<void> main() async {
     await tester.tap(btn);
 
     await tester.pumpAndSettle();
-    verify(mockNavigator.didPush(any,any));
-
+    verify(mockNavigator.didPush(any, any));
   });
 }

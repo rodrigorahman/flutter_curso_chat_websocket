@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 
 import 'package:chat_websocket/app/modules/auth/register/domain/exceptions/register_failure.dart';
-import 'package:chat_websocket/app/modules/auth/register/domain/ports/i_user_register_repository.dart';
+import 'package:chat_websocket/app/modules/auth/register/domain/repositories/i_user_register_repository.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../presentation/ports/i_register.dart';
+import '../../../presentation/usecases/i_register.dart';
 
 @Injectable(as: IRegister)
 class Register implements IRegister {

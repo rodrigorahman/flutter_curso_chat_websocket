@@ -12,14 +12,14 @@ T _$identity<T>(T value) => value;
 class _$RegisterFailureTearOff {
   const _$RegisterFailureTearOff();
 
-  _RegisterFailure server({String message}) {
-    return _RegisterFailure(
+  RegisterFailureServer server({String message}) {
+    return RegisterFailureServer(
       message: message,
     );
   }
 
-  _RegisterFailureValidation validation({List<String> errors}) {
-    return _RegisterFailureValidation(
+  RegisterFailureValidation validation({List<String> errors}) {
+    return RegisterFailureValidation(
       errors: errors,
     );
   }
@@ -42,13 +42,13 @@ mixin _$RegisterFailure {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result server(_RegisterFailure value),
-    @required Result validation(_RegisterFailureValidation value),
+    @required Result server(RegisterFailureServer value),
+    @required Result validation(RegisterFailureValidation value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result server(_RegisterFailure value),
-    Result validation(_RegisterFailureValidation value),
+    Result server(RegisterFailureServer value),
+    Result validation(RegisterFailureValidation value),
     @required Result orElse(),
   });
 }
@@ -68,35 +68,35 @@ class _$RegisterFailureCopyWithImpl<$Res>
   final $Res Function(RegisterFailure) _then;
 }
 
-abstract class _$RegisterFailureCopyWith<$Res> {
-  factory _$RegisterFailureCopyWith(
-          _RegisterFailure value, $Res Function(_RegisterFailure) then) =
-      __$RegisterFailureCopyWithImpl<$Res>;
+abstract class $RegisterFailureServerCopyWith<$Res> {
+  factory $RegisterFailureServerCopyWith(RegisterFailureServer value,
+          $Res Function(RegisterFailureServer) then) =
+      _$RegisterFailureServerCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
-class __$RegisterFailureCopyWithImpl<$Res>
+class _$RegisterFailureServerCopyWithImpl<$Res>
     extends _$RegisterFailureCopyWithImpl<$Res>
-    implements _$RegisterFailureCopyWith<$Res> {
-  __$RegisterFailureCopyWithImpl(
-      _RegisterFailure _value, $Res Function(_RegisterFailure) _then)
-      : super(_value, (v) => _then(v as _RegisterFailure));
+    implements $RegisterFailureServerCopyWith<$Res> {
+  _$RegisterFailureServerCopyWithImpl(
+      RegisterFailureServer _value, $Res Function(RegisterFailureServer) _then)
+      : super(_value, (v) => _then(v as RegisterFailureServer));
 
   @override
-  _RegisterFailure get _value => super._value as _RegisterFailure;
+  RegisterFailureServer get _value => super._value as RegisterFailureServer;
 
   @override
   $Res call({
     Object message = freezed,
   }) {
-    return _then(_RegisterFailure(
+    return _then(RegisterFailureServer(
       message: message == freezed ? _value.message : message as String,
     ));
   }
 }
 
-class _$_RegisterFailure implements _RegisterFailure {
-  _$_RegisterFailure({this.message});
+class _$RegisterFailureServer implements RegisterFailureServer {
+  _$RegisterFailureServer({this.message});
 
   @override
   final String message;
@@ -109,7 +109,7 @@ class _$_RegisterFailure implements _RegisterFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RegisterFailure &&
+        (other is RegisterFailureServer &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
@@ -119,8 +119,9 @@ class _$_RegisterFailure implements _RegisterFailure {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
   @override
-  _$RegisterFailureCopyWith<_RegisterFailure> get copyWith =>
-      __$RegisterFailureCopyWithImpl<_RegisterFailure>(this, _$identity);
+  $RegisterFailureServerCopyWith<RegisterFailureServer> get copyWith =>
+      _$RegisterFailureServerCopyWithImpl<RegisterFailureServer>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -150,8 +151,8 @@ class _$_RegisterFailure implements _RegisterFailure {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result server(_RegisterFailure value),
-    @required Result validation(_RegisterFailureValidation value),
+    @required Result server(RegisterFailureServer value),
+    @required Result validation(RegisterFailureValidation value),
   }) {
     assert(server != null);
     assert(validation != null);
@@ -161,8 +162,8 @@ class _$_RegisterFailure implements _RegisterFailure {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result server(_RegisterFailure value),
-    Result validation(_RegisterFailureValidation value),
+    Result server(RegisterFailureServer value),
+    Result validation(RegisterFailureValidation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -173,43 +174,43 @@ class _$_RegisterFailure implements _RegisterFailure {
   }
 }
 
-abstract class _RegisterFailure implements RegisterFailure {
-  factory _RegisterFailure({String message}) = _$_RegisterFailure;
+abstract class RegisterFailureServer implements RegisterFailure {
+  factory RegisterFailureServer({String message}) = _$RegisterFailureServer;
 
   String get message;
-  _$RegisterFailureCopyWith<_RegisterFailure> get copyWith;
+  $RegisterFailureServerCopyWith<RegisterFailureServer> get copyWith;
 }
 
-abstract class _$RegisterFailureValidationCopyWith<$Res> {
-  factory _$RegisterFailureValidationCopyWith(_RegisterFailureValidation value,
-          $Res Function(_RegisterFailureValidation) then) =
-      __$RegisterFailureValidationCopyWithImpl<$Res>;
+abstract class $RegisterFailureValidationCopyWith<$Res> {
+  factory $RegisterFailureValidationCopyWith(RegisterFailureValidation value,
+          $Res Function(RegisterFailureValidation) then) =
+      _$RegisterFailureValidationCopyWithImpl<$Res>;
   $Res call({List<String> errors});
 }
 
-class __$RegisterFailureValidationCopyWithImpl<$Res>
+class _$RegisterFailureValidationCopyWithImpl<$Res>
     extends _$RegisterFailureCopyWithImpl<$Res>
-    implements _$RegisterFailureValidationCopyWith<$Res> {
-  __$RegisterFailureValidationCopyWithImpl(_RegisterFailureValidation _value,
-      $Res Function(_RegisterFailureValidation) _then)
-      : super(_value, (v) => _then(v as _RegisterFailureValidation));
+    implements $RegisterFailureValidationCopyWith<$Res> {
+  _$RegisterFailureValidationCopyWithImpl(RegisterFailureValidation _value,
+      $Res Function(RegisterFailureValidation) _then)
+      : super(_value, (v) => _then(v as RegisterFailureValidation));
 
   @override
-  _RegisterFailureValidation get _value =>
-      super._value as _RegisterFailureValidation;
+  RegisterFailureValidation get _value =>
+      super._value as RegisterFailureValidation;
 
   @override
   $Res call({
     Object errors = freezed,
   }) {
-    return _then(_RegisterFailureValidation(
+    return _then(RegisterFailureValidation(
       errors: errors == freezed ? _value.errors : errors as List<String>,
     ));
   }
 }
 
-class _$_RegisterFailureValidation implements _RegisterFailureValidation {
-  _$_RegisterFailureValidation({this.errors});
+class _$RegisterFailureValidation implements RegisterFailureValidation {
+  _$RegisterFailureValidation({this.errors});
 
   @override
   final List<String> errors;
@@ -222,7 +223,7 @@ class _$_RegisterFailureValidation implements _RegisterFailureValidation {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RegisterFailureValidation &&
+        (other is RegisterFailureValidation &&
             (identical(other.errors, errors) ||
                 const DeepCollectionEquality().equals(other.errors, errors)));
   }
@@ -232,10 +233,9 @@ class _$_RegisterFailureValidation implements _RegisterFailureValidation {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(errors);
 
   @override
-  _$RegisterFailureValidationCopyWith<_RegisterFailureValidation>
-      get copyWith =>
-          __$RegisterFailureValidationCopyWithImpl<_RegisterFailureValidation>(
-              this, _$identity);
+  $RegisterFailureValidationCopyWith<RegisterFailureValidation> get copyWith =>
+      _$RegisterFailureValidationCopyWithImpl<RegisterFailureValidation>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -265,8 +265,8 @@ class _$_RegisterFailureValidation implements _RegisterFailureValidation {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result server(_RegisterFailure value),
-    @required Result validation(_RegisterFailureValidation value),
+    @required Result server(RegisterFailureServer value),
+    @required Result validation(RegisterFailureValidation value),
   }) {
     assert(server != null);
     assert(validation != null);
@@ -276,8 +276,8 @@ class _$_RegisterFailureValidation implements _RegisterFailureValidation {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result server(_RegisterFailure value),
-    Result validation(_RegisterFailureValidation value),
+    Result server(RegisterFailureServer value),
+    Result validation(RegisterFailureValidation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -288,10 +288,10 @@ class _$_RegisterFailureValidation implements _RegisterFailureValidation {
   }
 }
 
-abstract class _RegisterFailureValidation implements RegisterFailure {
-  factory _RegisterFailureValidation({List<String> errors}) =
-      _$_RegisterFailureValidation;
+abstract class RegisterFailureValidation implements RegisterFailure {
+  factory RegisterFailureValidation({List<String> errors}) =
+      _$RegisterFailureValidation;
 
   List<String> get errors;
-  _$RegisterFailureValidationCopyWith<_RegisterFailureValidation> get copyWith;
+  $RegisterFailureValidationCopyWith<RegisterFailureValidation> get copyWith;
 }

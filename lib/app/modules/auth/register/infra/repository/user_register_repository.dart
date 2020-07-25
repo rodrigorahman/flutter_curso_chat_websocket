@@ -1,9 +1,9 @@
-import 'package:chat_websocket/app/modules/auth/register/data/datasource/i_user_register_datasource.dart';
+import 'package:chat_websocket/app/modules/auth/register/infra/datasource/i_user_register_datasource.dart';
 import 'package:dartz/dartz.dart';
 import 'package:chat_websocket/app/modules/auth/register/domain/exceptions/register_failure.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/ports/i_user_register_repository.dart';
+import '../../domain/repositories/i_user_register_repository.dart';
 
 @Injectable(as: IUserRegisterRepository)
 class UserRegisterRepository implements IUserRegisterRepository {

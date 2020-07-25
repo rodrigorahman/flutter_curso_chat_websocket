@@ -17,21 +17,23 @@ void main() {
   IRestClient restClient;
   DioMock dio;
   Response response;
-  Map<String, dynamic> userResponse;
   RestClientExceptionMock restClientExceptionMock;
+
   setUp((){
     restClient = RestClientMock();
     dio = DioMock();
     response = DioResponseMock();
-    userResponse = {
-      'id': 'id',
-      'nome': 'nome',
-      'login': 'login',
-    };
+    
     restClientExceptionMock = RestClientExceptionMock();
   });
 
   test('should login and return user', () async {
+    Map<String, dynamic> userResponse = {
+      'id': 'id',
+      'nome': 'nome',
+      'login': 'login',
+    };
+    
     when(response.data).thenReturn(userResponse);
     when(dio.post(any, data: anyNamed('data'))).thenAnswer((_) async => response);
     when(restClient.instance()).thenReturn(dio);

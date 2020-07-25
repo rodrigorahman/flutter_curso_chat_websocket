@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:chat_websocket/app/modules/auth/register/presentation/ports/i_register.dart';
+import 'package:chat_websocket/app/modules/auth/register/presentation/usecases/i_register.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

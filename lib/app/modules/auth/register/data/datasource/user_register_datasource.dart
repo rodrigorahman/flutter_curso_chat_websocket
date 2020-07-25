@@ -3,7 +3,7 @@ import 'package:chat_websocket/app/infrastructure/rest_client/rest_client_except
 import 'package:chat_websocket/app/modules/auth/register/domain/exceptions/register_failure.dart';
 import 'package:injectable/injectable.dart';
 
-import 'i_user_register_datasource.dart';
+import '../../infra/datasource/i_user_register_datasource.dart';
 
 @Injectable(as: IUserRegisterDatasource)
 class UserRegisterDatasource implements IUserRegisterDatasource {
@@ -19,7 +19,7 @@ class UserRegisterDatasource implements IUserRegisterDatasource {
     } on RestClientException catch (e) {
       throw RegisterFailure.server(message: e.message);
     } catch (e) {
-      throw RegisterFailure.server(message: e.message);
+      throw RegisterFailure.server(message: e.toString());
     }
   }
 }
