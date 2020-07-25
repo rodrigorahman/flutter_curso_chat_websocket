@@ -1,15 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:chat_websocket/app/modules/groups/presentation/ports/i_create_group.dart';
-import 'package:chat_websocket/app/modules/groups/presentation/ports/i_find_all_groups.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/usecases/i_create_group.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/usecases/i_find_all_groups.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
-import 'package:chat_websocket/app/modules/groups/data/failures/group_failures.dart';
+import 'package:chat_websocket/app/modules/groups/infra/failures/group_failures.dart';
 import 'package:chat_websocket/app/modules/groups/domain/entities/group.dart';
-import 'package:chat_websocket/app/modules/groups/domain/usecases/create_group.dart';
-import 'package:chat_websocket/app/modules/groups/domain/usecases/find_all_groups.dart';
 
 part 'group_list_cubit.freezed.dart';
 part 'group_list_state.dart';

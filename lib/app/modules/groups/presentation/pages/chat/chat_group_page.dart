@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:chat_websocket/app/infrastructure/dependency_injection/instance_factory.dart';
-import 'package:chat_websocket/app/modules/groups/data/model/group_message_model.dart';
+import 'package:chat_websocket/app/modules/groups/infra/model/group_message_model.dart';
 import 'package:chat_websocket/app/modules/groups/domain/entities/group_message.dart';
 import 'package:chat_websocket/app/modules/groups/presentation/pages/chat/cubit/chat_group_cubit.dart';
 import 'package:flutter/material.dart';

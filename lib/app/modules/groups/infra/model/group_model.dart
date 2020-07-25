@@ -1,7 +1,7 @@
 
 import 'dart:convert';
 
-import 'package:chat_websocket/app/modules/groups/data/model/group_message_model.dart';
+import 'package:chat_websocket/app/modules/groups/infra/model/group_message_model.dart';
 import 'package:chat_websocket/app/modules/groups/domain/entities/group.dart';
 
 class GroupModel extends Group {

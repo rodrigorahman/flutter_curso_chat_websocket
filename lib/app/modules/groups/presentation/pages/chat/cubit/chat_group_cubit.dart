@@ -3,10 +3,9 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:chat_websocket/app/modules/auth/login/domain/entities/user.dart';
-import 'package:chat_websocket/app/modules/groups/data/failures/group_failures.dart';
-import 'package:chat_websocket/app/modules/groups/domain/entities/group_message.dart';
-import 'package:chat_websocket/app/modules/groups/presentation/ports/i_chat_websocket_connect.dart';
-import 'package:chat_websocket/app/modules/groups/presentation/ports/i_find_group_by_id.dart';
+import 'package:chat_websocket/app/modules/groups/infra/failures/group_failures.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/usecases/i_chat_websocket_connect.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/usecases/i_find_group_by_id.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

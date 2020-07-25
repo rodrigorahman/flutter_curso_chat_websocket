@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:chat_websocket/app/modules/groups/domain/ports/i_group_repository.dart';
-import 'package:chat_websocket/app/modules/groups/presentation/ports/i_chat_websocket_connect.dart';
+import 'package:chat_websocket/app/modules/groups/domain/repositories/i_group_repository.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/usecases/i_chat_websocket_connect.dart';
 import 'package:injectable/injectable.dart';
 import 'package:web_socket_channel/io.dart';
 

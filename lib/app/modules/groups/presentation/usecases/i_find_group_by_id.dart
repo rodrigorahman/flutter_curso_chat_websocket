@@ -1,4 +1,4 @@
-import 'package:chat_websocket/app/modules/groups/data/failures/group_failures.dart';
+import 'package:chat_websocket/app/modules/groups/infra/failures/group_failures.dart';
 import 'package:chat_websocket/app/modules/groups/domain/entities/group.dart';
 import 'package:dartz/dartz.dart';
 

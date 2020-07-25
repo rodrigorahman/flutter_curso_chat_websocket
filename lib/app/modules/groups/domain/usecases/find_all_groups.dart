@@ -1,8 +1,8 @@
 
-import 'package:chat_websocket/app/modules/groups/data/failures/group_failures.dart';
+import 'package:chat_websocket/app/modules/groups/infra/failures/group_failures.dart';
 import 'package:chat_websocket/app/modules/groups/domain/entities/group.dart';
-import 'package:chat_websocket/app/modules/groups/domain/ports/i_group_repository.dart';
-import 'package:chat_websocket/app/modules/groups/presentation/ports/i_find_all_groups.dart';
+import 'package:chat_websocket/app/modules/groups/domain/repositories/i_group_repository.dart';
+import 'package:chat_websocket/app/modules/groups/presentation/usecases/i_find_all_groups.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

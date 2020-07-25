@@ -1,12 +1,12 @@
 import 'package:chat_websocket/app/infrastructure/rest_client/i_rest_client.dart';
 import 'package:chat_websocket/app/infrastructure/rest_client/rest_client_exception.dart';
-import 'package:chat_websocket/app/modules/groups/data/failures/group_failures.dart';
-import 'package:chat_websocket/app/modules/groups/data/model/group_model.dart';
+import 'package:chat_websocket/app/modules/groups/infra/failures/group_failures.dart';
+import 'package:chat_websocket/app/modules/groups/infra/model/group_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
 import 'package:web_socket_channel/io.dart';
 
-import 'i_group_datasource.dart';
+import '../../infra/datasource/i_group_datasource.dart';
 
 @LazySingleton(as: IGroupDataSource)
 class GroupDatasource implements IGroupDataSource {

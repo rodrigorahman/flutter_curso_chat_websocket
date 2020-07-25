@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:chat_websocket/app/modules/groups/data/datasource/i_group_datasource.dart';
-import 'package:chat_websocket/app/modules/groups/data/failures/group_failures.dart';
+import 'package:chat_websocket/app/modules/groups/infra/datasource/i_group_datasource.dart';
+import 'package:chat_websocket/app/modules/groups/infra/failures/group_failures.dart';
 import 'package:chat_websocket/app/modules/groups/domain/entities/group.dart';
-import 'package:chat_websocket/app/modules/groups/domain/ports/i_group_repository.dart';
+import 'package:chat_websocket/app/modules/groups/domain/repositories/i_group_repository.dart';
 import 'package:web_socket_channel/io.dart';
 
 @LazySingleton(as: IGroupRepository)
