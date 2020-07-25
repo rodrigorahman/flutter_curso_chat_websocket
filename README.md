@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/rodrigorahman/flutter_curso_chat_websocket/branch/master/graph/badge.svg?token=Z94D0XPPGQ)](https://codecov.io/gh/rodrigorahman/flutter_curso_chat_websocket)
 
 
-# Covarage run
+# Coverage run
 bash <(curl -s https://codecov.io/bash) -t token
 
 # chat_websocket
