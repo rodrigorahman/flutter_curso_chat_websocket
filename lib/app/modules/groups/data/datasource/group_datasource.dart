@@ -19,8 +19,7 @@ class GroupDatasource implements IGroupDataSource {
     try {
       final resp = await _restClient.instance().get('/grupos');
       return resp.data?.map<GroupModel>((g) => GroupModel.fromMap(g))?.toList();
-    } on RestClientException catch (e, s) {
-      print(s);
+    } catch(e) {
       throw GroupFailures.serverError(message: e.toString());
     }
   }
@@ -29,7 +28,7 @@ class GroupDatasource implements IGroupDataSource {
   Future<void> createGroup(String name) async {
     try {
       await _restClient.instance().post('/grupo', data: {'nomeGrupo': name});
-    } on RestClientException catch (e, s) {
+    } catch (e, s) {
       print(s);
       throw GroupFailures.serverError(message: e.toString());
     }
@@ -41,9 +40,6 @@ class GroupDatasource implements IGroupDataSource {
       return await _restClient.instance().get('/grupo/$id').then(
             (resp) => GroupModel.fromMap(resp.data),
           );
-    } on RestClientException catch (e, s) {
-      print(s);
-      throw GroupFailures.serverError(message: e.toString());
     } catch(e) {
       throw GroupFailures.serverError(message: e.toString());
     }

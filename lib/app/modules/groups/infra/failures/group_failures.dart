@@ -4,6 +4,6 @@ part 'group_failures.freezed.dart';
 
 @freezed
 abstract class GroupFailures with _$GroupFailures {
-   factory GroupFailures.serverError({String message}) = _GroupFailures;
+   factory GroupFailures.serverError({String message}) = GroupFailuresServerError;
    factory GroupFailures.validationError({String message}) = GroupFailuresValidate;
 }

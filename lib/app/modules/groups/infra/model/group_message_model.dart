@@ -2,8 +2,9 @@
 import 'dart:convert';
 
 import 'package:chat_websocket/app/modules/groups/domain/entities/group_message.dart';
+import 'package:equatable/equatable.dart';
 
-class GroupMessageModel extends GroupMessage {
+class GroupMessageModel extends GroupMessage with EquatableMixin {
 
   String id;
   String message;
@@ -41,4 +42,7 @@ class GroupMessageModel extends GroupMessage {
   String toJson() => json.encode(toMap());
 
   static GroupMessageModel fromJson(String source) => fromMap(json.decode(source));
+
+  @override
+  List<Object> get props => [id, message, date, user];
 }

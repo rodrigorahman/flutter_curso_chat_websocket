@@ -12,8 +12,8 @@ T _$identity<T>(T value) => value;
 class _$GroupFailuresTearOff {
   const _$GroupFailuresTearOff();
 
-  _GroupFailures serverError({String message}) {
-    return _GroupFailures(
+  GroupFailuresServerError serverError({String message}) {
+    return GroupFailuresServerError(
       message: message,
     );
   }
@@ -44,12 +44,12 @@ mixin _$GroupFailures {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result serverError(_GroupFailures value),
+    @required Result serverError(GroupFailuresServerError value),
     @required Result validationError(GroupFailuresValidate value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result serverError(_GroupFailures value),
+    Result serverError(GroupFailuresServerError value),
     Result validationError(GroupFailuresValidate value),
     @required Result orElse(),
   });
@@ -82,37 +82,38 @@ class _$GroupFailuresCopyWithImpl<$Res>
   }
 }
 
-abstract class _$GroupFailuresCopyWith<$Res>
+abstract class $GroupFailuresServerErrorCopyWith<$Res>
     implements $GroupFailuresCopyWith<$Res> {
-  factory _$GroupFailuresCopyWith(
-          _GroupFailures value, $Res Function(_GroupFailures) then) =
-      __$GroupFailuresCopyWithImpl<$Res>;
+  factory $GroupFailuresServerErrorCopyWith(GroupFailuresServerError value,
+          $Res Function(GroupFailuresServerError) then) =
+      _$GroupFailuresServerErrorCopyWithImpl<$Res>;
   @override
   $Res call({String message});
 }
 
-class __$GroupFailuresCopyWithImpl<$Res>
+class _$GroupFailuresServerErrorCopyWithImpl<$Res>
     extends _$GroupFailuresCopyWithImpl<$Res>
-    implements _$GroupFailuresCopyWith<$Res> {
-  __$GroupFailuresCopyWithImpl(
-      _GroupFailures _value, $Res Function(_GroupFailures) _then)
-      : super(_value, (v) => _then(v as _GroupFailures));
+    implements $GroupFailuresServerErrorCopyWith<$Res> {
+  _$GroupFailuresServerErrorCopyWithImpl(GroupFailuresServerError _value,
+      $Res Function(GroupFailuresServerError) _then)
+      : super(_value, (v) => _then(v as GroupFailuresServerError));
 
   @override
-  _GroupFailures get _value => super._value as _GroupFailures;
+  GroupFailuresServerError get _value =>
+      super._value as GroupFailuresServerError;
 
   @override
   $Res call({
     Object message = freezed,
   }) {
-    return _then(_GroupFailures(
+    return _then(GroupFailuresServerError(
       message: message == freezed ? _value.message : message as String,
     ));
   }
 }
 
-class _$_GroupFailures implements _GroupFailures {
-  _$_GroupFailures({this.message});
+class _$GroupFailuresServerError implements GroupFailuresServerError {
+  _$GroupFailuresServerError({this.message});
 
   @override
   final String message;
@@ -125,7 +126,7 @@ class _$_GroupFailures implements _GroupFailures {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _GroupFailures &&
+        (other is GroupFailuresServerError &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
@@ -135,8 +136,9 @@ class _$_GroupFailures implements _GroupFailures {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
   @override
-  _$GroupFailuresCopyWith<_GroupFailures> get copyWith =>
-      __$GroupFailuresCopyWithImpl<_GroupFailures>(this, _$identity);
+  $GroupFailuresServerErrorCopyWith<GroupFailuresServerError> get copyWith =>
+      _$GroupFailuresServerErrorCopyWithImpl<GroupFailuresServerError>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -166,7 +168,7 @@ class _$_GroupFailures implements _GroupFailures {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result serverError(_GroupFailures value),
+    @required Result serverError(GroupFailuresServerError value),
     @required Result validationError(GroupFailuresValidate value),
   }) {
     assert(serverError != null);
@@ -177,7 +179,7 @@ class _$_GroupFailures implements _GroupFailures {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result serverError(_GroupFailures value),
+    Result serverError(GroupFailuresServerError value),
     Result validationError(GroupFailuresValidate value),
     @required Result orElse(),
   }) {
@@ -189,13 +191,14 @@ class _$_GroupFailures implements _GroupFailures {
   }
 }
 
-abstract class _GroupFailures implements GroupFailures {
-  factory _GroupFailures({String message}) = _$_GroupFailures;
+abstract class GroupFailuresServerError implements GroupFailures {
+  factory GroupFailuresServerError({String message}) =
+      _$GroupFailuresServerError;
 
   @override
   String get message;
   @override
-  _$GroupFailuresCopyWith<_GroupFailures> get copyWith;
+  $GroupFailuresServerErrorCopyWith<GroupFailuresServerError> get copyWith;
 }
 
 abstract class $GroupFailuresValidateCopyWith<$Res>
@@ -283,7 +286,7 @@ class _$GroupFailuresValidate implements GroupFailuresValidate {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result serverError(_GroupFailures value),
+    @required Result serverError(GroupFailuresServerError value),
     @required Result validationError(GroupFailuresValidate value),
   }) {
     assert(serverError != null);
@@ -294,7 +297,7 @@ class _$GroupFailuresValidate implements GroupFailuresValidate {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result serverError(_GroupFailures value),
+    Result serverError(GroupFailuresServerError value),
     Result validationError(GroupFailuresValidate value),
     @required Result orElse(),
   }) {
