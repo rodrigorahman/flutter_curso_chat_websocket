@@ -13,7 +13,7 @@ import 'package:chat_websocket/app/modules/auth/register/infra/repository/user_r
 import 'package:chat_websocket/app/modules/auth/register/domain/repositories/i_user_register_repository.dart';
 import 'package:chat_websocket/app/modules/groups/data/datasource/group_datasource.dart';
 import 'package:chat_websocket/app/modules/groups/infra/datasource/i_group_datasource.dart';
-import 'package:chat_websocket/app/modules/groups/infra/repository/group_repository.dart';
+import 'package:chat_websocket/app/modules/groups/infra/repositories/group_repository.dart';
 import 'package:chat_websocket/app/modules/groups/domain/repositories/i_group_repository.dart';
 import 'package:chat_websocket/app/modules/auth/login/data/datasource/login_datasource.dart';
 import 'package:chat_websocket/app/modules/auth/login/infra/datasource/i_login_datasource.dart';
