@@ -1,10 +1,12 @@
 
-class GroupMessage {
+import 'package:equatable/equatable.dart';
+
+class GroupMessage extends Equatable {
   
-  String id;
-  String message;
-  DateTime dateTime;
-  String user;
+  final String id;
+  final String message;
+  final DateTime dateTime;
+  final String user;
   
   GroupMessage({
     this.id,
@@ -12,5 +14,8 @@ class GroupMessage {
     this.dateTime,
     this.user,
   });
+
+  @override
+  List<Object> get props => [id, message, dateTime, user];
 
 }
